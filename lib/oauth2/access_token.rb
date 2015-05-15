@@ -81,6 +81,7 @@ module OAuth2
       fail('A refresh_token is not available') unless refresh_token
       params.merge!(:client_id      => @client.id,
                     :client_secret  => @client.secret,
+                    :callback_url   => 'http://localhost:3000/'
                     :grant_type     => 'refresh_token',
                     :refresh_token  => refresh_token)
       new_token = @client.get_token(params)
